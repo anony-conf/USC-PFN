@@ -1,12 +1,14 @@
 # Unified Self-cycle Consistency for Parser-free Virtual Try-on, 2023
-Official code for paper 'Unified Self-cycle Consistency for Parser-free Virtual Try-on'
+**Official code for paper "[Unified Self-cycle Consistency for Parser-free Virtual Try-on](https://arxiv.org/abs/)"**
 
 
-**The training code has been released.**
+<!-- **The training code has been released.** -->
 
 ![image](https://github.com/geyuying/PF-AFN/blob/main/show/compare_both.jpg?raw=true)
 
-[[Paper]](https://openaccess.thecvf.com/content/CVPR2021/papers/Ge_Parser-Free_Virtual_Try-On_via_Distilling_Appearance_Flows_CVPR_2021_paper.pdf)       [[Supplementary Material]](https://github.com/geyuying/PF-AFN/blob/main/PFAFN_supp.pdf)
+The pursuit of an efficient lifestyle has been stimulating the development of virtual try-on technology. However, generating high-quality virtual try-on images remains challenging due to the inherent difficulties such as modeling non-rigid garment deformation and unpaired garment-person images. Recent groundbreaking formulations, including in-painting, cycle consistency, and in-painting-based knowledge distillation, have enabled self-supervised generation of try-on images. Nonetheless, these methods decouple different garment domains in the try-on result distribution through dual generators or “teacher knowledge”, and their multi-model cross-domain pipeline may act as a significant bottleneck of major generator, leading to reduced try-on quality. To tackle these limitations, we propose a new Self-Cycle Consistency virtual try-on Network (SCCN), which enables the learning of virtual try-on for different garment domains using only a single model. A self-cycle consistency architecture in a round mode is first proposed for virtual try-on, which effectively avoids third-party interference noise ($e.g.$, erroneous human segmentation and irresponsible teacher knowledge). Particularly, Markov Random Field based non-rigid flow estimation formulation is leveraged for more natural garment deformation. Moreover, SCCN can employ general generators for self-supervised cycle training. Experiments demonstrate that our method achieves SOTA performance on a popular virtual try-on benchmark.
+
+[[Paper]](https://arxiv.org/abs/)       [[Supplementary Material]](https://github.com/geyuying/PF-AFN/blob/main/PFAFN_supp.pdf)
 
 [[Checkpoints for Test]](https://drive.google.com/file/d/1_a0AiN8Y_d_9TNDhHIcRlERz3zptyYWV/view?usp=sharing)
 
@@ -16,30 +18,31 @@ Official code for paper 'Unified Self-cycle Consistency for Parser-free Virtual 
 [[VGG_Model]](https://drive.google.com/file/d/1Mw24L52FfOT9xXm3I1GL8btn7vttsHd9/view?usp=sharing)
 
 ## Our Environment
-anaconda3
+- anaconda3
 
-pytorch 1.1.0
+- pytorch 1.6.0
 
-torchvision 0.3.0
+- torchvision 0.7.0
 
-cuda 9.0
+- cuda 11.7
 
-cupy 6.0.0
+- cupy 8.3.0
 
-opencv-python 4.5.1
+- opencv-python 4.5.1
+ 
+- python 3.6
 
 1 tesla V100 GPU for training; 1 tesla V100 GPU for test
 
-python 3.6
 
 ## Installation
-conda create -n tryon python=3.6
+conda create -n sccn python=3.6
 
-source activate tryon     or     conda activate tryon
+source activate sccn     or     conda activate sccn
 
-conda install pytorch=1.1.0 torchvision=0.3.0 cudatoolkit=9.0 -c pytorch
+conda install pytorch=1.6.0 torchvision=0.7.0 cudatoolkit=11.7 -c pytorch
 
-conda install cupy     or     pip install cupy==6.0.0
+conda install cupy     or     pip install cupy==8.3.0
 
 pip install opencv-python
 
@@ -47,13 +50,13 @@ git clone https://github.com/anony-conf/SCCN.git
 
 cd SCCN
 
-## Training on VITON dataset 
+<!-- ## Training on VITON dataset 
 1. cd PF-AFN_train
 2. Download the VITON training set from [VITON_train](https://drive.google.com/file/d/1Uc0DTTkSfCPXDhd4CMx2TQlzlC6bDolK/view?usp=sharing) and put the folder "VITON_traindata" under the folder "dataset".
 3. Dowload the VGG_19 model from [VGG_Model](https://drive.google.com/file/d/1Mw24L52FfOT9xXm3I1GL8btn7vttsHd9/view?usp=sharing) and put "vgg19-dcbb9e9d.pth" under the folder "models".
 4. First train the parser-based network PBAFN. Run **scripts/train_PBAFN_stage1.sh**. After the parser-based warping module is trained, run **scripts/train_PBAFN_e2e.sh**.
 5. After training the parser-based network PBAFN, train the parser-free network PFAFN. Run **scripts/train_PFAFN_stage1.sh**. After the parser-free warping module is trained, run **scripts/train_PFAFN_e2e.sh**.
-6. Following the above insructions with the provided training code, the [[trained PF-AFN]](https://drive.google.com/file/d/1Pz2kA65N4Ih9w6NFYBDmdtVdB-nrrdc3/view?usp=sharing) achieves FID 9.92 on VITON test set with the test_pairs.txt (You can find it in https://github.com/minar09/cp-vton-plus/blob/master/data/test_pairs.txt).
+6. Following the above insructions with the provided training code, the [[trained PF-AFN]](https://drive.google.com/file/d/1Pz2kA65N4Ih9w6NFYBDmdtVdB-nrrdc3/view?usp=sharing) achieves FID 9.92 on VITON test set with the test_pairs.txt (You can find it in https://github.com/minar09/cp-vton-plus/blob/master/data/test_pairs.txt). -->
 
 ## Run the demo
 1. cd PF-AFN_test
