@@ -69,7 +69,7 @@ The pursuit of an efficient lifestyle has been stimulating the development of vi
 
 ## Inference
 
-## Evaluation SSIM and FID
+## Evaluation SSIM (Structural Similarity) and FID (Fréchet Inception Distance)
 
 The results for computing SSIM is **same-clothes reconstructed results** (paired setting), FID is **different-clothes reconstructed results** (unpaired setting). 
 
@@ -79,7 +79,7 @@ The results for computing SSIM is **same-clothes reconstructed results** (paired
   3. Compute the score with window size = 4, the SSIM score should be 0.91.
 
 ### FID score
-  1. Use the pytorch inception score repo. https://github.com/sbarratt/inception-score-pytorch
+  1. Use the pytorch inception score repo. https://github.com/toshas/torch-fidelity
   2. Install `FID use pip install torch-fidelity`. Please strictly follow the procedure given in this repo.
   3. Compute the score, the FID score should be 10.60.
   `CUDA_VISIBLE_DEVICES=0 python -m pytorch_fid path_results_A/ path_results_B/`
