@@ -100,6 +100,22 @@ If our code is helpful to your work, please cite:
   year={2023}
 }
 
+@inproceedings{ge2021parser,
+  title={Parser-free virtual try-on via distilling appearance flows},
+  author={Ge, Yuying and Song, Yibing and Zhang, Ruimao and Ge, Chongjian and Liu, Wei and Luo, Ping},
+  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
+  pages={8485--8493},
+  year={2021}
+}
+
+@inproceedings{ge2021disentangled,
+  title={Disentangled Cycle Consistency for Highly-realistic Virtual Try-On},
+  author={Ge, Chongjian and Song, Yibing and Ge, Yuying and Yang, Han and Liu, Wei and Luo, Ping},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={16928--16937},
+  year={2021}
+}
+
 @inproceedings{jandial2020sievenet,
   title={Sievenet: A unified framework for robust image-based virtual try-on},
   author={Jandial, Surgan and Chopra, Ayush and Ayush, Kumar and Hemani, Mayur and Krishnamurthy, Balaji and Halwai, Abhijeet},
