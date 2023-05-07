@@ -1,5 +1,5 @@
-# Unified Self-cycle Consistency for Parser-free Virtual Try-on, 2023
-**Official code for paper "[Unified Self-cycle Consistency for Parser-free Virtual Try-on](https://arxiv.org/abs/)"**
+# USC-PFN: Unified Self-cycle Consistency for Parser-free Virtual Try-on, 2023
+**Official code for paper "[USC-PFN: Unified Self-cycle Consistency for Parser-free Virtual Try-on](https://arxiv.org/abs/)"**
 
 
 <!-- **The training code has been released.** -->
@@ -46,20 +46,12 @@ The pursuit of an efficient lifestyle has been stimulating the development of vi
 
 `pip install opencv-python`
 
-git clone https://github.com/anony-conf/SCCN.git
+`git clone https://github.com/anony-conf/SCCN.git`
 
-cd SCCN
-
-<!-- ## Training on VITON dataset 
-1. cd PF-AFN_train
-2. Download the VITON training set from [VITON_train](https://drive.google.com/file/d/1Uc0DTTkSfCPXDhd4CMx2TQlzlC6bDolK/view?usp=sharing) and put the folder "VITON_traindata" under the folder "dataset".
-3. Dowload the VGG_19 model from [VGG_Model](https://drive.google.com/file/d/1Mw24L52FfOT9xXm3I1GL8btn7vttsHd9/view?usp=sharing) and put "vgg19-dcbb9e9d.pth" under the folder "models".
-4. First train the parser-based network PBAFN. Run **scripts/train_PBAFN_stage1.sh**. After the parser-based warping module is trained, run **scripts/train_PBAFN_e2e.sh**.
-5. After training the parser-based network PBAFN, train the parser-free network PFAFN. Run **scripts/train_PFAFN_stage1.sh**. After the parser-free warping module is trained, run **scripts/train_PFAFN_e2e.sh**.
-6. Following the above insructions with the provided training code, the [[trained PF-AFN]](https://drive.google.com/file/d/1Pz2kA65N4Ih9w6NFYBDmdtVdB-nrrdc3/view?usp=sharing) achieves FID 9.92 on VITON test set with the test_pairs.txt (You can find it in https://github.com/minar09/cp-vton-plus/blob/master/data/test_pairs.txt). -->
+## Inference
 
 ## Run the demo
-1. cd PF-AFN_test
+1. cd SCCN
 2. First, you need to download the checkpoints from [checkpoints](https://drive.google.com/file/d/1_a0AiN8Y_d_9TNDhHIcRlERz3zptyYWV/view?usp=sharing) and put the folder "PFAFN" under the folder "checkpoints". The folder "checkpoints/PFAFN" shold contain "warp_model_final.pth" and "gen_model_final.pth". 
 3. The "dataset" folder contains the demo images for test, where the "test_img" folder contains the person images, the "test_clothes" folder contains the clothes images, and the "test_edge" folder contains edges extracted from the clothes images with the built-in function in python (We saved the extracted edges from the clothes images for convenience). 'demo.txt' records the test pairs. 
 4. During test, a person image, a clothes image and its extracted edge are fed into the network to generate the try-on image. **No human parsing results or human pose estimation results are needed for test.**
@@ -67,18 +59,37 @@ cd SCCN
 6. **To reproduce our results from the saved model, your test environment should be the same as our test environment, especifically for the version of cupy.** 
 
 ![image](https://github.com/geyuying/PF-AFN/blob/main/show/compare.jpg?raw=true)
+
 ## Dataset
 1. [VITON](https://github.com/xthan/VITON) contains a training set of 14,221 image pairs and a test set of 2,032 image pairs, each of which has a front-view woman photo and a top clothing image with the resolution 256 x 192. Our saved model is trained on the VITON training set and tested on the VITON test set.
 2. To train from scratch on VITON training set, you can download [VITON_train](https://drive.google.com/file/d/1Uc0DTTkSfCPXDhd4CMx2TQlzlC6bDolK/view?usp=sharing).
 3. To test our saved model on the complete VITON test set, you can download [VITON_test](https://drive.google.com/file/d/1Y7uV0gomwWyxCvvH8TIbY7D9cTAUy6om/view?usp=sharing).
 
+## Inference
+
+## Evaluation
+- VITON dataset
+
+Download the [checkpoint](https://www.mde),  which gets higher scores than reported in paper.
+
+Paired setting. SSIM: 0.8539 using the pytorch SSIM repo. https://github.com/Po-Hsun-Su/pytorch-ssim
+
+UnPaired setting. FID: 10.55 using the implementation to evaluate. https://github.com/toshas/torch-fidelity
+
+
+## Acknowledgement
+Our code references the implementation of [ClotFlow](https://openaccess.thecvf.com/content_ICCV_2019/papers/Han_ClothFlow_A_Flow-Based_Model_for_Clothed_Person_Generation_ICCV_2019_paper.pdf) and [PFAPN](https://github.com/geyuying/PF-AFN), including the feature extractors, feature pyramid networks (FPN) , and the design of the cascaded structure. Thanks for their awesome works.
+
+
 ## License
 The use of this code is RESTRICTED to non-commercial research and educational purposes.
 
 ## Acknowledgement
-Our code is based on the implementation of "Clothflow: A flow-based model for clothed person generation" (See the citation below), including the implementation of the feature pyramid networks (FPN) and the ResUnetGenerator, and the adaptation of the cascaded structure to predict the appearance flows. If you use our code, please also cite their work as below.
 
-https://github.com/levindabhi/SieveNet
+
+Our code is based on the unofficial implementation of "[SieveNet: A Unified Framework for Robust Image-Based Virtual Try-On](https://github.com/levindabhi/SieveNet)" (See the citation below), including the implementation of the feature pyramid networks (FPN) and the ResUnetGenerator, and the adaptation of the cascaded structure to predict the appearance flows. If you use our code, please also cite their work as below.
+
+
 ## Citation
 If our code is helpful to your work, please cite:
 ```
@@ -89,4 +100,12 @@ If our code is helpful to your work, please cite:
   year={2023}
 }
 ```
-
+```
+@inproceedings{jandial2020sievenet,
+  title={Sievenet: A unified framework for robust image-based virtual try-on},
+  author={Jandial, Surgan and Chopra, Ayush and Ayush, Kumar and Hemani, Mayur and Krishnamurthy, Balaji and Halwai, Abhijeet},
+  booktitle={Proceedings of the IEEE/CVF winter conference on applications of computer vision},
+  pages={2182--2190},
+  year={2020}
+}
+```
