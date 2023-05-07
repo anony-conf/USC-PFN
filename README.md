@@ -1,5 +1,5 @@
-# USC-PFN: Unified Self-cycle Consistency for Parser-free Virtual Try-on, 2023
-**Official code for paper "[USC-PFN: Unified Self-cycle Consistency for Parser-free Virtual Try-on](https://arxiv.org/abs/)"**
+# Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on, 2023
+**Official code for paper "[Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on](https://arxiv.org/abs/)"**
 
 ![Python 3.6](https://img.shields.io/badge/python-3.6-green.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -83,7 +83,7 @@ The results for computing SSIM is **same-clothes reconstructed results** (paired
   2. Install FID use `pip install torch-fidelity`. Please strictly follow the procedure given in this repo.
   3. Compute the score, the FID score should be 10.60.
   
-  `CUDA_VISIBLE_DEVICES=0 python -m pytorch_fid path_results_A/ path_results_B/`
+  ```CUDA_VISIBLE_DEVICES=0 python -m pytorch_fid path_results_A/ path_results_B/```
 
 
 ## Acknowledgement
@@ -94,7 +94,7 @@ Our code is based on the official implementation of [[PF-AFN](https://github.com
 If our code is helpful to your work, please cite:
 ```
 @article{du2023unified,
-  title={USC-PFN: Unified Self-cycle Consistency for Parser-free Virtual Try-on},
+  title={Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on},
   author={Du, Chenghu and Wang, Junyin and Liu, Shuqing and Xiong, Shengwu},
   journal={arXiv preprint arXiv:2303.00000},
   year={2023}
