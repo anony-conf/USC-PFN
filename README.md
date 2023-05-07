@@ -36,15 +36,15 @@ The pursuit of an efficient lifestyle has been stimulating the development of vi
 
 
 ## Installation
-conda create -n sccn python=3.6
+`conda create -n sccn python=3.6`
 
-source activate sccn     or     conda activate sccn
+`source activate sccn     or     conda activate sccn`
 
-conda install pytorch=1.6.0 torchvision=0.7.0 cudatoolkit=11.7 -c pytorch
+`conda install pytorch=1.6.0 torchvision=0.7.0 cudatoolkit=11.7 -c pytorch`
 
-conda install cupy     or     pip install cupy==8.3.0
+`conda install cupy     or     pip install cupy==8.3.0`
 
-pip install opencv-python
+`pip install opencv-python`
 
 git clone https://github.com/anony-conf/SCCN.git
 
