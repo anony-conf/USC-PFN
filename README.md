@@ -82,6 +82,7 @@ The results for computing SSIM is **same-clothes reconstructed results** (paired
   1. Use the pytorch inception score repo. https://github.com/sbarratt/inception-score-pytorch
   2. Install `FID use pip install torch-fidelity`. Please strictly follow the procedure given in this repo.
   3. Compute the score, the FID score should be 10.60.
+  `CUDA_VISIBLE_DEVICES=0 python -m pytorch_fid path_results_A/ path_results_B/`
 
 ## Acknowledgement
 Our code references the implementation of [ClotFlow](https://openaccess.thecvf.com/content_ICCV_2019/papers/Han_ClothFlow_A_Flow-Based_Model_for_Clothed_Person_Generation_ICCV_2019_paper.pdf) and [PFAPN](https://github.com/geyuying/PF-AFN), including the feature extractors, feature pyramid networks (FPN) , and the design of the cascaded structure. Thanks for their awesome works.
