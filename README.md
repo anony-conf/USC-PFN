@@ -80,8 +80,9 @@ The results for computing SSIM is **same-clothes reconstructed results** (paired
 
 ### FID score
   1. Use the pytorch inception score repo. https://github.com/toshas/torch-fidelity
-  2. Install `FID use pip install torch-fidelity`. Please strictly follow the procedure given in this repo.
+  2. Install FID use `pip install torch-fidelity`. Please strictly follow the procedure given in this repo.
   3. Compute the score, the FID score should be 10.60.
+  
   `CUDA_VISIBLE_DEVICES=0 python -m pytorch_fid path_results_A/ path_results_B/`
 
 ## Acknowledgement
@@ -97,12 +98,11 @@ If our code is helpful to your work, please cite:
 ```
 @article{du2023unified,
   title={USC-PFN: Unified Self-cycle Consistency for Parser-free Virtual Try-on},
-  author={Du, Chenghu and Wang, Junyin and Liu, Shuqin and Xiong, Shengwu},
+  author={Du, Chenghu and Wang, Junyin and Liu, Shuqing and Xiong, Shengwu},
   journal={arXiv preprint arXiv:2303.00000},
   year={2023}
 }
-```
-```
+
 @inproceedings{jandial2020sievenet,
   title={Sievenet: A unified framework for robust image-based virtual try-on},
   author={Jandial, Surgan and Chopra, Ayush and Ayush, Kumar and Hemani, Mayur and Krishnamurthy, Balaji and Halwai, Abhijeet},
