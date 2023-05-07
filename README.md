@@ -1,8 +1,10 @@
 # USC-PFN: Unified Self-cycle Consistency for Parser-free Virtual Try-on, 2023
 **Official code for paper "[USC-PFN: Unified Self-cycle Consistency for Parser-free Virtual Try-on](https://arxiv.org/abs/)"**
 
+![Python 3.6](https://img.shields.io/badge/python-3.6-green.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-<!-- **The training code has been released.** -->
+**The `test code` has been released, the `training code` will be released after the paper has been accepted.**
 
 ![image](https://github.com/geyuying/PF-AFN/blob/main/show/compare_both.jpg?raw=true)
 
@@ -46,12 +48,12 @@ The pursuit of an efficient lifestyle has been stimulating the development of vi
 
 `pip install opencv-python`
 
-`git clone https://github.com/anony-conf/SCCN.git`
+`git clone https://github.com/anony-conf/USC-PFN.git`
 
 ## Inference
 
 ## Run the demo
-1. cd SCCN
+1. cd USC-PFN
 2. First, you need to download the checkpoints from [checkpoints](https://drive.google.com/file/d/1_a0AiN8Y_d_9TNDhHIcRlERz3zptyYWV/view?usp=sharing) and put the folder "PFAFN" under the folder "checkpoints". The folder "checkpoints/PFAFN" shold contain "warp_model_final.pth" and "gen_model_final.pth". 
 3. The "dataset" folder contains the demo images for test, where the "test_img" folder contains the person images, the "test_clothes" folder contains the clothes images, and the "test_edge" folder contains edges extracted from the clothes images with the built-in function in python (We saved the extracted edges from the clothes images for convenience). 'demo.txt' records the test pairs. 
 4. During test, a person image, a clothes image and its extracted edge are fed into the network to generate the try-on image. **No human parsing results or human pose estimation results are needed for test.**
@@ -67,34 +69,33 @@ The pursuit of an efficient lifestyle has been stimulating the development of vi
 
 ## Inference
 
-## Evaluation
-- VITON dataset
+## Evaluation SSIM and FID
 
-Download the [checkpoint](https://www.mde),  which gets higher scores than reported in paper.
+The results for computing SSIM is **same-clothes reconstructed results** (paired setting), FID is **different-clothes reconstructed results** (unpaired setting). 
 
-Paired setting. SSIM: 0.8539 using the pytorch SSIM repo. https://github.com/Po-Hsun-Su/pytorch-ssim
+### SSIM score
+  1. Use the pytorch SSIM repo. https://github.com/Po-Hsun-Su/pytorch-ssim
+  2. Normalize the image (img/255.0) and reshape correctly. If not normalized correctly, the results differ a lot. 
+  3. Compute the score with window size = 4, the SSIM score should be 0.91.
 
-UnPaired setting. FID: 10.55 using the implementation to evaluate. https://github.com/toshas/torch-fidelity
-
+### FID score
+  1. Use the pytorch inception score repo. https://github.com/sbarratt/inception-score-pytorch
+  2. Install `FID use pip install torch-fidelity`. Please strictly follow the procedure given in this repo.
+  3. Compute the score, the FID score should be 10.60.
 
 ## Acknowledgement
 Our code references the implementation of [ClotFlow](https://openaccess.thecvf.com/content_ICCV_2019/papers/Han_ClothFlow_A_Flow-Based_Model_for_Clothed_Person_Generation_ICCV_2019_paper.pdf) and [PFAPN](https://github.com/geyuying/PF-AFN), including the feature extractors, feature pyramid networks (FPN) , and the design of the cascaded structure. Thanks for their awesome works.
 
 
-## License
-The use of this code is RESTRICTED to non-commercial research and educational purposes.
-
 ## Acknowledgement
-
-
-Our code is based on the unofficial implementation of "[SieveNet: A Unified Framework for Robust Image-Based Virtual Try-On](https://github.com/levindabhi/SieveNet)" (See the citation below), including the implementation of the feature pyramid networks (FPN) and the ResUnetGenerator, and the adaptation of the cascaded structure to predict the appearance flows. If you use our code, please also cite their work as below.
+Our code is based on the unofficial implementation of "[SieveNet: A Unified Framework for Robust Image-Based Virtual Try-On](https://github.com/levindabhi/SieveNet)" (See the citation below), and the official implementation of `PF-AFN` (the ResUnetGenerator). If you use our code, please also cite their work as below.
 
 
 ## Citation
 If our code is helpful to your work, please cite:
 ```
 @article{du2023unified,
-  title={Unified Self-cycle Consistency for Parser-free Virtual Try-on},
+  title={USC-PFN: Unified Self-cycle Consistency for Parser-free Virtual Try-on},
   author={Du, Chenghu and Wang, Junyin and Liu, Shuqin and Xiong, Shengwu},
   journal={arXiv preprint arXiv:2303.00000},
   year={2023}
@@ -109,3 +110,5 @@ If our code is helpful to your work, please cite:
   year={2020}
 }
 ```
+## License
+The use of this code is RESTRICTED to non-commercial research and educational purposes.
