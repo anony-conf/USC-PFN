@@ -87,7 +87,7 @@ The results for computing SSIM is **same-clothes reconstructed results** (paired
 
 
 ## Acknowledgement
-Our code is based on the official implementation of "[PF-AFN](https://github.com/geyuying/PF-AFN)", "[DCTON](https://github.com/ChongjianGE/DCTON)", and the unofficial implementation of "[SieveNet](https://github.com/levindabhi/SieveNet)" (See the citation below). If you use our code, please also cite their work as below.
+Our code is based on the official implementation of [[PF-AFN](https://github.com/geyuying/PF-AFN)], [[DCTON](https://github.com/ChongjianGE/DCTON)], and the unofficial implementation of [[SieveNet](https://github.com/levindabhi/SieveNet)]. If you use our code, please also cite their work as below.
 
 
 ## Citation
