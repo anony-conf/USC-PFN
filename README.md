@@ -85,12 +85,9 @@ The results for computing SSIM is **same-clothes reconstructed results** (paired
   
   `CUDA_VISIBLE_DEVICES=0 python -m pytorch_fid path_results_A/ path_results_B/`
 
-## Acknowledgement
-Our code references the implementation of [ClotFlow](https://openaccess.thecvf.com/content_ICCV_2019/papers/Han_ClothFlow_A_Flow-Based_Model_for_Clothed_Person_Generation_ICCV_2019_paper.pdf) and [PFAPN](https://github.com/geyuying/PF-AFN), including the feature extractors, feature pyramid networks (FPN) , and the design of the cascaded structure. Thanks for their awesome works.
-
 
 ## Acknowledgement
-Our code is based on the unofficial implementation of "[SieveNet: A Unified Framework for Robust Image-Based Virtual Try-On](https://github.com/levindabhi/SieveNet)" (See the citation below), and the official implementation of `PF-AFN` (the ResUnetGenerator). If you use our code, please also cite their work as below.
+Our code is based on the official implementation of "[PF-AFN](https://github.com/geyuying/PF-AFN)", "[DCTON](https://github.com/ChongjianGE/DCTON)", and the unofficial implementation of "[SieveNet](https://github.com/levindabhi/SieveNet)" (See the citation below). If you use our code, please also cite their work as below.
 
 
 ## Citation
