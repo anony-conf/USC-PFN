@@ -93,10 +93,10 @@ Our code is based on the official implementation of [[PF-AFN](https://github.com
 ## Citation
 If our code is helpful to your work, please cite:
 ```
-@article{du2023unified,
+@article{anonymous2023unified,
   title={Greatness in Simplicity: Unified Self-cycle Consistency for Parser-free Virtual Try-on},
-  author={Du, Chenghu and Wang, Junyin and Liu, Shuqing and Xiong, Shengwu},
-  journal={arXiv preprint arXiv:2303.00000},
+  author={anonymous},
+  journal={arXiv preprint arXiv:0000.00000},
   year={2023}
 }
 
