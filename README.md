@@ -10,9 +10,9 @@
 
 The pursuit of an efficient lifestyle has been stimulating the development of image-based virtual try-on. However, generating high-quality virtual try-on images remains challenging due to the inherent difficulties such as modeling non-rigid garment deformation and unpaired garment-person images. Recent groundbreaking formulations, including in-painting, cycle consistency, and in-painting-based knowledge distillation, have enabled self-supervised generation of try-on images. Nevertheless, these methods require disentangling different garment domains in the try-on result distribution via an assistance of "teacher knowledge" or dual generators. Due to the possible existence of irresponsible prior knowledge in the pretext task, such multi-model cross-domain pipelines may act as a significant bottleneck of main generator (e.g., "student model," CNN_2 of DCTON) in downstream task, leading to reduced try-on quality. Additionally, current garment deformation methods are unable to mimic the natural interaction between the garment and the human body in the real world, resulting in unrealistic alignment effects. To tackle these limitations, we present a new Unified Self-Cycle Consistency for Parser-Free virtual try-on Network (USC-PFN), which enables the robust translation between different garment domains using only a single generator and realistically mimics the non-rigid geometric deformation of garments in the real world. Specifically, we first propose a self-cycle consistency architecture with a round mode that uses only unpaired garment-person images as inputs for virtual try-on, which effectively shakes off irresponsible prior knowledge. Markov Random Field is first formulated for more natural and realistic garment deformation. Moreover, USC-PFN can employ general generator for self-supervised cycle training. Experiments demonstrate that our method achieves SOTA performance on a popular virtual try-on benchmark. 
 
-[[Paper]](https://arxiv.org/abs/)       [[Supplementary Material]](https://github.com/geyuying/PF-AFN/blob/main/PFAFN_supp.pdf)
+[[Paper]](https://arxiv.org/abs/)       [[Supplementary Material]](https://github.com/)
 
-[[Checkpoints for Test]](https://drive.google.com/file/d/1_a0AiN8Y_d_9TNDhHIcRlERz3zptyYWV/view?usp=sharing)
+[[Checkpoints for Test]](https://drive.google.com)
 
 [[Training_Data]](https://drive.google.com/file/d/1Uc0DTTkSfCPXDhd4CMx2TQlzlC6bDolK/view?usp=sharing)
 [[Test_Data]](https://drive.google.com/file/d/1Y7uV0gomwWyxCvvH8TIbY7D9cTAUy6om/view?usp=sharing)
@@ -76,12 +76,12 @@ The results for computing SSIM is **same-clothes reconstructed results** (paired
 ### SSIM score
   1. Use the pytorch SSIM repo. https://github.com/Po-Hsun-Su/pytorch-ssim
   2. Normalize the image (img/255.0) and reshape correctly. If not normalized correctly, the results differ a lot. 
-  3. Compute the score with window size = 4, the SSIM score should be 0.91.
+  3. Compute the score with window size = 11, the SSIM score should be 0.91.
 
 ### FID score
   1. Use the pytorch inception score repo. https://github.com/toshas/torch-fidelity
   2. Install FID use `pip install torch-fidelity`. Please strictly follow the procedure given in this repo.
-  3. Compute the score, the FID score should be 10.60.
+  3. Compute the score, the FID score should be 10.47.
   
   ```CUDA_VISIBLE_DEVICES=0 python -m pytorch_fid path_results_A/ path_results_B/```
 
